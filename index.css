@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  color: #222327;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000000;
+}
+
+.forum-login {
+  position: absolute;
+  width: 330px;
+  height: 410px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0px 5px 70px 20px rgba(247, 214, 0, 0.831), 0 10px 10px 10px #c0a301;
+}
+
+.indicator {
+  position: absolute;
+  top: -20%;
+  left: 30%;
+  width: 150px;
+  height: 150px;
+  background-image: url(./img/pp.jpeg);
+  background-size: cover;
+  border-radius: 50%;
+  border: 7px solid #000000;
+  transition: 0.5s;
+}
+
+.show,
+.hide {
+  position: relative;
+  left: 90%;
+  color: #000000;
+}
+
+.tangan-kanan {
+  position: absolute;
+  top: -9%;
+  left: 46%;
+  width: 70px;
+  height: 50px;
+  filter: grayscale(9);
+  z-index: 1;
+  display: none;
+}
+.tangan-kiri {
+  position: absolute;
+  top: -9%;
+  left: 35%;
+  width: 70px;
+  height: 50px;
+  filter: grayscale();
+  z-index: 1;
+  display: none;
+}
+
+/* login */
+.wrapper {
+  padding-top: 18%;
+}
+h2 {
+  text-align: center;
+  margin-top: -17px;
+}
+
+p {
+  text-align: center;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #767777;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #c0a301;
+}
+
+.tml {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: #c0a301;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 3px 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #b39800;
+}
+
+.help-block {
+  color: red;
+  font-size: 14px;
+  display: none;
+  font-style: italic;
+}
