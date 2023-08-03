@@ -30,6 +30,54 @@ body {
   box-shadow: 0px 5px 70px 20px rgba(247, 214, 0, 0.831), 0 10px 10px 10px #c0a301;
 }
 
+.bg-hover {
+  gap: 2px;
+  height: 100vh;
+  width: 100vw;
+  flex-wrap: wrap;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+}
+.bg-hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#000, #ffe816, #000);
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-100%);
+  }
+  30% {
+    transform: translateX(20%);
+  }
+  60% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+.bg-hover span {
+  position: relative;
+  display: block;
+  width: calc(6.25vw - 2px);
+  height: calc(6.25vw - 2px);
+  background-color: #0f0f0f;
+  transition: 1.5s;
+}
+
+.bg-hover span:hover {
+  background-color: #ffe816;
+  transition: 0s;
+}
+
 .indicator {
   position: absolute;
   top: -20%;
@@ -111,4 +159,17 @@ input[type="password"] {
   font-size: 14px;
   display: none;
   font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .bg-hover span {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
+  }
+}
+@media (max-width: 600px) {
+  .bg-hover span {
+    width: calc(9vw - 2px);
+    height: calc(9vw - 2px);
+  }
 }
