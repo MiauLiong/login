@@ -168,6 +168,9 @@ input[type="password"] {
   }
 }
 @media (max-width: 600px) {
+  .forum-login {
+    align-items: center;
+  }
   .bg-hover span {
     width: calc(9vw - 2px);
     height: calc(9vw - 2px);
