@@ -336,11 +336,14 @@
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
             // tampilkan tombol login, hilangkan tombol loading
-
             btnLoading.classList.toggle("d-none");
             btnLogin.classList.toggle("d-none");
             myAlert.classList.toggle("d-none");
             selamatDatang.classList.toggle("d-none");
+
+            // reset formnya
+            form.reset();
+
             console.log("Success!", response);
           })
           .catch((error) => console.error("Error!", error.message));
